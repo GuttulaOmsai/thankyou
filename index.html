@@ -61,6 +61,17 @@
   }
 }
 
+    #countdown {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        color:black;
+        padding: 10px 0;
+        text-align: center;
+        font-size: 18px;
+    }
+
     </style>
 </head>
 <body>
@@ -87,5 +98,21 @@
           </radialGradient>
         </defs>
       </svg>
+      <div id="countdown">Redirecting To Home Page In <span id="countdown-display">5</span> seconds...</div>
+      <script>
+          var seconds = 5;
+          var countdownDisplay = document.getElementById('countdown-display');
+      
+          function updateCountdown() {
+              seconds--;
+              countdownDisplay.textContent = seconds;
+              if (seconds <= 0) {
+                  clearInterval(countdownInterval);
+                  window.location.href = ' '; 
+              }
+          }
+      
+          var countdownInterval = setInterval(updateCountdown, 500); 
+      </script>
 </body>
 </html>
